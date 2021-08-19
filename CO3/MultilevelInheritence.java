@@ -30,7 +30,7 @@ class Circle extends Shape{
 		System.out.println("Area of circle:"+(3.14*x*x));
 	}
 }
-class Area{
+class Areaa{
 	public static void main(String ar[]){
 		
 		Rectangle r=new Rectangle(4,5);
