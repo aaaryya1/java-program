@@ -1,80 +1,47 @@
-  
-import java.util.Scanner;
-class Person{
-	String Name;
-	String Gender;
-	String Address;
-	int Age;
-	Person(){
-	Scanner sc=new Scanner(System.in);
-	System.out.println("Enter the Name:");
-	Name=sc.next();
-	System.out.println("Enter the Gender:");
-	Gender=sc.next();
-	System.out.println("Enter the Address:");
-	Address=sc.next();
-	System.out.println("Enter the Age:");
-	Age=sc.nextInt();
+  class Shape{
+	double x;
+	Shape(double a){
+		x=a;
 	}
 }
-class Employee extends Person{
-	int EmpId;
-	String Company_name;
-	String Qualification;
-	int Salary;
-	Employee(){
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the EmpId:");
-		EmpId=sc.nextInt();
-		System.out.println("Enter the Company_name:");
-		Company_name=sc.next();
-		System.out.println("Enter the Qualification:");
-		Qualification=sc.next();
-		System.out.println("Enter the Salary:");
-		Salary=sc.nextInt();
+class Rectangle extends Shape{
+	double y;
+	Rectangle(double a,double b){
+		super(a);
+		y=b;
+	}
+	void area(double x,double y){
+		System.out.println("Area of rectangle:"+(x*y));
 	}
 }
-class Teacher extends Employee{
-	String Subject;
-	String Department;
-	String Teacherid;
-	Teacher(){
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Subject:");
-		Subject=sc.next();
-		System.out.println("Enter the Department:");
-		Department=sc.next();
-		System.out.println("Enter the Teacherid:");
-		Teacherid=sc.next();
-		System.out.println();
+class Square extends Shape{
+	Square(double a){
+		super(a);
 	}
-	void display(){
-		System.out.println();
-		System.out.println("Name:"+Name);
-		System.out.println("Gender:"+Gender);
-		System.out.println("Address:"+Address);
-		System.out.println("Age:"+Age);
-		System.out.println("EmpId:"+EmpId);
-		System.out.println("Company_name:"+Company_name);
-		System.out.println("Qualification:"+Qualification);
-		System.out.println("Salary:"+Salary);
-		System.out.println("Subject:"+Subject);
-		System.out.println("Department:"+Department);
-		System.out.println("Teacherid:"+Teacherid);
-		System.out.println();
+	void area(double x){
+		System.out.println("Area of square:"+(x*x));
 	}
 }
-class MultilevelInheritence{
+class Circle extends Shape{
+	Circle(double a){
+		super(a);
+	}
+	void area(double x){
+		System.out.println("Area of circle:"+(3.14*x*x));
+	}
+}
+class Area{
 	public static void main(String ar[]){
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the no. of teachers");
-		int n=sc.nextInt();
-		Teacher[] teacher=new Teacher[n];
-		for(int i=0;i<n;i++)
-		teacher[i]=new Teacher();
-		for(int i=0;i<n;i++){
-			System.out.println("details of teachers:");
-			teacher[i].display();
-		}
+		
+		Rectangle r=new Rectangle(4,5);
+		Square s=new Square(4);
+		Circle c=new Circle(2);
+		Shape ref;
+		ref=r;
+		r.area(4,5);
+		ref=s;
+		s.area(4);
+		ref=c;
+		c.area(2);
 	}
 }
